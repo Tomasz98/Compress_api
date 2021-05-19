@@ -5,7 +5,7 @@ db = create_engine('postgresql://husfarm:KLJkf5$59G5-*5KDKSD@ns3085177.ip-145-23
 db.echo = True
 metadata = MetaData(db)
 
-offers = Table('firmy_dnb',metadata,
+offers = Table('offers',metadata,
                    Column('id',BigInteger, primary_key=True),
                    Column('uuid',VARCHAR),
                    Column('lokacja',VARCHAR),

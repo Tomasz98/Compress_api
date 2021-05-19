@@ -11,11 +11,11 @@ import to_db
 def get_data_from_json(json_request):
     json_req = json.loads(json_request)
     #TODO dokńczyć odczyt JSONa
-    lokacja = "Gdańsk"
-    cena = 1.4
-    tytuł = "Sprzedam czereśnie"
-    foto = "ashdjkhasd"
-    return lokacja, cena,tytuł,foto
+    location = "Gdańsk"
+    price = 1.4
+    title = "Sprzedam czereśnie"
+    photo = "ashdjkhasd"
+    return location, price,title,photo
     #print(json_req['data'])
 
 def b64_to_png(b64_string):
@@ -39,11 +39,11 @@ def compressMe(file):
 
 
 def main(json_data):
-    lokacja, cena, tytul, b64foto = get_data_from_json(json_data)
+    location, price, title, b64photo = get_data_from_json(json_data)
 
     try:
-        if len(b64foto) > 0:
-            photo_name = b64_to_png(b64foto)
+        if len(b64photo) > 0:
+            photo_name = b64_to_png(b64photo)
             foto_bool = True
             compressMe(photo_name)
 
@@ -56,10 +56,8 @@ def main(json_data):
         print(error)
 
 
-    to_db.main(lokacja,cena,tytul,photo_name,foto_bool)
+    to_db.main(location,price,title,photo_name,foto_bool)
 
     print("Done")
 
 
-
-b64_to_png(b"dsadwdas")
