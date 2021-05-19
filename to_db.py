@@ -13,7 +13,7 @@ offers = Table('offers',metadata,
                    Column('tytuł',VARCHAR),
                    Column('foto',BOOLEAN),
                    )
-metadata.create_all(db)
+
 
 
 def main(lokacja,cena,tytul,photo_name,photo_bool):

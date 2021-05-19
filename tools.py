@@ -6,15 +6,29 @@ import uuid
 import json
 import to_db
 
-
+json_request = """
+{
+   "data":{
+      "location":"Gdańsk",
+      "price":"1.4",
+      "title":"Sprzedam czereśnie"
+   },
+   "photo":{
+      "foto":"sdadsada"
+   }
+}
+"""
 
 def get_data_from_json(json_request):
     json_req = json.loads(json_request)
     #TODO dokńczyć odczyt JSONa
-    location = "Gdańsk"
-    price = 1.4
-    title = "Sprzedam czereśnie"
-    photo = "ashdjkhasd"
+    jdata = (json_req)
+
+    location = jdata['data']['location']
+    price = jdata['data']['price']
+    title = jdata['data']['title']
+    photo = jdata['photo']['foto']
+
     return location, price,title,photo
     #print(json_req['data'])
 
@@ -60,4 +74,4 @@ def main(json_data):
 
     print("Done")
 
-
+get_data_from_json(json_request)
